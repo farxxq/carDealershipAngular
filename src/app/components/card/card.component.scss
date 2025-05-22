@@ -1,0 +1,305 @@
+// temp card css
+:root {
+  --main-link-color: #45d0e7;
+  --card-1-img: url("https://moxopixel.com/assets/img/external/crosby-card.jpg");
+  --card-2-img: url("https://moxopixel.com/assets/img/external/mcdavid-card.jpg");
+  --card-3-img: url("https://moxopixel.com/assets/img/external/bedard-card.jpg");
+  --card-1-mask: url("https://moxopixel.com/assets/img/external/card-mask-1.png");
+  --card-2-mask: url("https://moxopixel.com/assets/img/external/card-mask-2.png");
+  --card-3-mask: url("https://moxopixel.com/assets/img/external/card-mask-3.png");
+}
+
+body {
+  container-type: inline-size;
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(162deg, #000 0%, #1e3448 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  overflow: hidden;
+}
+
+.wrap {
+  display: flex;
+  gap: 5rem;
+  max-height: 560px;
+  height: 80vh;
+
+  @container (max-width: 1400px) {
+    gap: 3rem;
+  }
+
+  @container (max-width: 1200px) {
+    zoom: 0.7;
+  }
+
+  @container (max-width: 865px) {
+    zoom: 1;
+    flex-direction: column;
+    max-height: 100%;
+    height: auto;
+  }
+}
+
+.card-container {
+  --main-color: var(--main-link-color);
+  --main-color-text: oklch(
+    from var(--main-color) calc(l - 0.7) calc(c - 0.15) h
+  );
+  --main-color-bright: oklch(from var(--main-color) calc(l + 0.7) c h);
+  --main-color-dark: oklch(
+    from var(--main-color) calc(l - 0.2) calc(c - 0.05) h
+  );
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 1;
+
+  border-radius: 1.75rem;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 0 0 2px oklch(from var(--main-color) l c h / calc(alpha - 0.3)),
+    0 0 25px 8px oklch(from var(--main-color) l c h / calc(alpha - 0.9));
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 0.4s ease-out, background-size 1.5s ease-out;
+  cursor: default;
+  will-change: transform, box-shadow, background-size;
+  user-select: none;
+  backface-visibility: hidden;
+
+  @container (max-width: 865px) {
+    height: 500px;
+  }
+}
+
+.card-1 {
+  background-image: var(--card-1-img);
+}
+
+.card-2 {
+  background-image: var(--card-2-img);
+}
+
+.card-3 {
+  background-image: var(--card-3-img);
+}
+
+.card-container[data-color="yellow"] {
+  --main-color: #ffbb28;
+}
+
+.card-container[data-color="orange"] {
+  --main-color: #ff7336;
+}
+
+.card-container[data-color="red"] {
+  --main-color: #ff3f3f;
+}
+
+.card-container:hover {
+  box-shadow: 0 0 0 3px oklch(from var(--main-color) l c h / calc(alpha - 0.2)),
+    0 0 35px 12px oklch(from var(--main-color) l c h / calc(alpha - 0.8));
+}
+
+.shine {
+  --color1: rgb(0, 231, 255);
+  --color2: rgb(255, 0, 231);
+  background-image:
+     linear-gradient(
+    45deg,
+    hsl(359, 60%, 40%),
+    hsl(16, 60%, 45%),
+    hsl(33, 60%, 50%),
+    hsl(45, 60%, 55%),
+    hsl(58, 60%, 60%),
+    hsl(58, 60%, 65%),
+    hsl(58, 60%, 70%),
+    hsl(96, 60%, 65%),
+    hsl(146, 60%, 60%),
+    hsl(183, 60%, 55%),
+    hsl(225, 60%, 50%),
+    hsl(265, 60%, 45%),
+    hsl(303, 60%, 40%)
+  );
+
+
+  background-size: cover;
+  background-blend-mode: overlay;
+  mix-blend-mode: color-dodge;
+
+  opacity: 0.5;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 3;
+  mask-size: cover;
+  mask-position: center;
+  transition: all 0.4s linear;
+}
+
+.card-container:hover .shine {
+  opacity: 0.8;
+}
+
+.card-1 .shine {
+  mask-image: var(--card-1-mask), radial-gradient(50% 50%, #ffffff00, #000000);
+}
+
+.card-2 .shine {
+  mask-image: var(--card-2-mask), radial-gradient(50% 50%, #ffffff00, #000000);
+}
+
+.card-3 .shine {
+  mask-image: var(--card-3-mask), radial-gradient(50% 50%, #ffffff00, #000000);
+}
+
+.js-tilt-glare {
+  mix-blend-mode: hard-light;
+}
+
+.js-tilt-glare-inner {
+  z-index: 4;
+}
+
+.inner-border-overlay {
+  position: absolute;
+  inset: 14px;
+  border-radius: 1.375rem;
+  pointer-events: none;
+  z-index: 10;
+  box-shadow: inset 0.5px 0.5px 1.5px
+      oklch(from var(--main-color) l c h / calc(alpha - 0.7)),
+    inset -1px -1px 1px rgba(0, 0, 0, 0.5),
+    inset 3px 3px 6px rgba(0, 0, 0, 0.25);
+  transform: translateZ(30px);
+  will-change: transform;
+  border: 1px solid oklch(from var(--main-color) l c h / calc(alpha - 0.8));
+}
+
+.content-area {
+  position: absolute;
+  inset: 14px;
+  border-radius: 1.375rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  z-index: 5;
+  transform: translateZ(60px);
+  will-change: transform;
+}
+
+.badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--main-color);
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  color: var(--main-color-text);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transform: translateZ(70px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  z-index: 25;
+  will-change: transform;
+}
+
+.badge svg {
+  width: 1em;
+  height: 1em;
+}
+
+.gradient-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 75%;
+  background: linear-gradient(
+    to top,
+    oklch(from var(--main-color) calc(l - 0.75) c h / calc(alpha - 0.2)) 0%,
+    oklch(from var(--main-color) calc(l - 0.8) c h / calc(alpha - 0.4)) 40%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 15;
+  transform: translateZ(5px);
+  will-change: transform;
+}
+
+.text-block {
+  position: relative;
+  z-index: 20;
+  color: #f8fafc;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  transform: translateZ(25px);
+  will-change: transform;
+}
+
+.text-block h1 {
+  letter-spacing: 0.025em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.text-block p {
+  color: #cbd5e1;
+}
+
+.main-button {
+  position: relative;
+  z-index: 20;
+  background: var(--main-color);
+  color: var(--main-color-text);
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border-radius: 9999px;
+  text-align: center;
+  width: auto;
+  min-width: 190px;
+  max-width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow: inset 2px 2px 4px rgba(255, 255, 255, 0.5),
+    0 1px 2px rgba(0, 0, 0, 0.2);
+  transform: translateZ(40px);
+  will-change: transform, box-shadow, background;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  letter-spacing: 0.025em;
+  margin-top: 1rem;
+}
+
+.main-button:hover {
+  background: var(--main-color-bright);
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0),
+    inset -2px -2px 5px rgba(255, 255, 255, 0.6), 0 2px 4px rgba(0, 0, 0, 0.15);
+  transform: translateZ(40px) translateY(-2px);
+}
+
+.main-button:active {
+  background: var(--main-color-dark);
+  box-shadow: inset -2px -2px 4px rgba(0, 0, 0, 0.3),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.5), 0 0 0 rgba(0, 0, 0, 0);
+  transform: translateZ(40px) translateY(0px);
+}

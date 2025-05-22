@@ -1,0 +1,15 @@
+<header>
+    <a [routerLink]="['/layout/home']" routerLinkActive="router-link-active" class="logo">Cars.</a>
+    <nav class="navbar">
+        <a [routerLink]="['/layout/home']" routerLinkActive="router-link-active"   [routerLinkActiveOptions]="{ exact: true }">Home</a>
+        <a [routerLink]="['/layout/car-detail']" routerLinkActive="router-link-active"   [routerLinkActiveOptions]="{ exact: true }">Car Details</a>
+        <a [routerLink]="['/layout/car-list']" routerLinkActive="router-link-active"   [routerLinkActiveOptions]="{ exact: true }">Car List</a>
+        <a [routerLink]="['/layout/contact']" routerLinkActive="router-link-active"   [routerLinkActiveOptions]="{ exact: true }">Contact</a>
+    </nav>
+
+    <div class="social-media">
+        <a [routerLink]="['/layout/contact']" routerLinkActive="router-link-active"  style="--i:1"><i class="fa-brands fa-facebook"></i></a>
+        <a [routerLink]="['/layout/contact']" style="--i:2"><i class="fa-brands fa-twitter"></i></a>
+        <a [routerLink]="['/layout/contact']" style="--i:3"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+</header>
