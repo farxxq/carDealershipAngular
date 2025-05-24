@@ -1,6 +1,5 @@
-// temp card css
 :root {
-  --main-link-color: #45d0e7;
+  --main-link-color: #6aa9ff;
   --card-1-img: url("https://moxopixel.com/assets/img/external/crosby-card.jpg");
   --card-2-img: url("https://moxopixel.com/assets/img/external/mcdavid-card.jpg");
   --card-3-img: url("https://moxopixel.com/assets/img/external/bedard-card.jpg");
@@ -12,7 +11,7 @@
 body {
   container-type: inline-size;
   font-family: "Inter", sans-serif;
-  background: linear-gradient(162deg, #000 0%, #1e3448 100%);
+  background: linear-gradient(162deg, #2a2a72 0%, #b8c6db 100%);
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -45,19 +44,14 @@ body {
 
 .card-container {
   --main-color: var(--main-link-color);
-  --main-color-text: oklch(
-    from var(--main-color) calc(l - 0.7) calc(c - 0.15) h
-  );
+  --main-color-text: oklch(from var(--main-color) calc(l - 0.7) calc(c - 0.15) h);
   --main-color-bright: oklch(from var(--main-color) calc(l + 0.7) c h);
-  --main-color-dark: oklch(
-    from var(--main-color) calc(l - 0.2) calc(c - 0.05) h
-  );
+  --main-color-dark: oklch(from var(--main-color) calc(l - 0.2) calc(c - 0.05) h);
   position: relative;
   display: block;
   width: 100%;
   max-width: 360px;
   aspect-ratio: 1;
-
   border-radius: 1.75rem;
   overflow: hidden;
   background-size: cover;
@@ -89,16 +83,13 @@ body {
   background-image: var(--card-3-img);
 }
 
-.card-container[data-color="yellow"] {
-  --main-color: #ffbb28;
+/* Custom color variants */
+.card-container[data-color="blue"] {
+  --main-color: #6aa9ff;
 }
 
-.card-container[data-color="orange"] {
-  --main-color: #ff7336;
-}
-
-.card-container[data-color="red"] {
-  --main-color: #ff3f3f;
+.card-container[data-color="lavender"] {
+  --main-color: #d8b4f8;
 }
 
 .card-container:hover {
@@ -107,31 +98,19 @@ body {
 }
 
 .shine {
-  --color1: rgb(0, 231, 255);
-  --color2: rgb(255, 0, 231);
-  background-image:
-     linear-gradient(
+  --color1: #6aa9ff;
+  --color2: #d8b4f8;
+  background-image: linear-gradient(
     45deg,
-    hsl(359, 60%, 40%),
-    hsl(16, 60%, 45%),
-    hsl(33, 60%, 50%),
-    hsl(45, 60%, 55%),
-    hsl(58, 60%, 60%),
-    hsl(58, 60%, 65%),
-    hsl(58, 60%, 70%),
-    hsl(96, 60%, 65%),
-    hsl(146, 60%, 60%),
-    hsl(183, 60%, 55%),
-    hsl(225, 60%, 50%),
-    hsl(265, 60%, 45%),
-    hsl(303, 60%, 40%)
+    #6aa9ff,
+    #8dbdff,
+    #b8c6ff,
+    #d8b4f8,
+    #e0c3fc
   );
-
-
   background-size: cover;
   background-blend-mode: overlay;
   mix-blend-mode: color-dodge;
-
   opacity: 0.5;
   width: 100%;
   height: 100%;
@@ -174,8 +153,7 @@ body {
   border-radius: 1.375rem;
   pointer-events: none;
   z-index: 10;
-  box-shadow: inset 0.5px 0.5px 1.5px
-      oklch(from var(--main-color) l c h / calc(alpha - 0.7)),
+  box-shadow: inset 0.5px 0.5px 1.5px oklch(from var(--main-color) l c h / calc(alpha - 0.7)),
     inset -1px -1px 1px rgba(0, 0, 0, 0.5),
     inset 3px 3px 6px rgba(0, 0, 0, 0.25);
   transform: translateZ(30px);
@@ -215,6 +193,17 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.3);
   z-index: 25;
   will-change: transform;
+
+  &.featured {
+    background: #2563eb;
+    color: #f8fafc;
+  }
+  &.special-offer {
+    background: #dc2626;
+  }
+  &.new-arrival {
+    background: #16a34a;
+  }
 }
 
 .badge svg {
@@ -293,13 +282,15 @@ body {
 .main-button:hover {
   background: var(--main-color-bright);
   box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0),
-    inset -2px -2px 5px rgba(255, 255, 255, 0.6), 0 2px 4px rgba(0, 0, 0, 0.15);
+    inset -2px -2px 5px rgba(255, 255, 255, 0.6),
+    0 2px 4px rgba(0, 0, 0, 0.15);
   transform: translateZ(40px) translateY(-2px);
 }
 
 .main-button:active {
   background: var(--main-color-dark);
   box-shadow: inset -2px -2px 4px rgba(0, 0, 0, 0.3),
-    inset 2px 2px 4px rgba(255, 255, 255, 0.5), 0 0 0 rgba(0, 0, 0, 0);
+    inset 2px 2px 4px rgba(255, 255, 255, 0.5),
+    0 0 0 rgba(0, 0, 0, 0);
   transform: translateZ(40px) translateY(0px);
 }

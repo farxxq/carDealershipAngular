@@ -1,12 +1,21 @@
-<div class="card-container card" [class]="color" #cardRef [attr.data-color]="color">
+<div class="card-container" [ngClass]="color" #cardRef [attr.data-color]="color"
+  style="background-image: url('{{ bg }}');">
   <div class="inner-border-overlay"></div>
+
   <div class="content-area">
     <div class="gradient-overlay"></div>
-    <div class="badge">NHLPLAY</div>
+    @if(badgeText){
+    <div class="badge" [ngClass]="badgeText.toLowerCase().replace(' ', '-')">
+      {{ badgeText }}
+    </div>
+
+    }
+
     <div class="text-block">
       <h1>{{ title }}</h1>
       <p>{{ subtitle }}</p>
     </div>
+
     <button class="main-button">
       View stats
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor">
@@ -15,5 +24,6 @@
       </svg>
     </button>
   </div>
+
   <div class="shine" [ngStyle]="{ 'mask-image': 'url(' + mask + ')' }"></div>
 </div>

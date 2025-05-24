@@ -1,1 +1,43 @@
-<p>car-list works!</p>
+<div class="collections-container">
+  <!-- 🔍 Search bar -->
+  <div class="search-bar">
+    <input type="text" placeholder="Search cars..." />
+  </div>
+
+  <!-- 🚘 Brand Selector -->
+  <div class="brand-selector">
+    <button class="brand-btn">Honda</button>
+    <button class="brand-btn">Toyota</button>
+    <button class="brand-btn">BMW</button>
+  </div>
+
+  <!-- 🏷️ SUV Category -->
+  <div class="category-section">
+    <div class="category-header">
+      <h2>SUVs - Honda</h2>
+      <a class="see-more" href="#">See More</a>
+    </div>
+    <div class="car-list">
+      <div class="car-card" *ngFor="let car of [1, 2, 3, 4]">
+        <img src="assets/images/car.png" id="car-img" alt="car" />
+        <h3>Honda CR-V</h3>
+        <p>2023 Model - $28,000</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🏷️ Sedan Category -->
+  <div class="category-section">
+    <div class="category-header">
+      <h2>Sedans - Honda</h2>
+      <a class="see-more" href="#">See More</a>
+    </div>
+    <div class="car-list">
+      <div class="car-card" *ngFor="let car of [1, 2, 3, 4]">
+        <img src="assets/images/car.png" id="car-img" alt="car" />
+        <h3>Honda Accord</h3>
+        <p>2022 Model - $24,000</p>
+      </div>
+    </div>
+  </div>
+</div>

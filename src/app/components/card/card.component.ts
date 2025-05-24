@@ -1,5 +1,11 @@
-import { NgStyle } from '@angular/common';
-import { Component, ElementRef, Input, AfterViewInit, ViewChild } from '@angular/core';
+import { NgStyle, CommonModule, NgClass } from '@angular/common';
+import {
+  Component,
+  ElementRef,
+  Input,
+  AfterViewInit,
+  ViewChild,
+} from '@angular/core';
 import VanillaTilt from 'vanilla-tilt';
 
 @Component({
@@ -7,13 +13,14 @@ import VanillaTilt from 'vanilla-tilt';
   standalone: true,
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss',
-  imports:[NgStyle]
+  imports: [NgStyle, CommonModule, NgClass],
 })
 export class CardComponent implements AfterViewInit {
-  @Input() title = '';
-  @Input() subtitle = '';
-  @Input() img = '';
-  @Input() color = 'yellow';
+  @Input() title = 'Loading...';
+  @Input() subtitle = 'Loading...';
+  @Input() badgeText?: string = '';
+  @Input() color = 'blue'; // or 'lavender' to test other variant
+  @Input() bg = '';
   @Input() mask = '';
 
   @ViewChild('cardRef', { static: true }) cardRef!: ElementRef;
@@ -26,8 +33,7 @@ export class CardComponent implements AfterViewInit {
       glare: true,
       'max-glare': 0.5,
       scale: 1.03,
-      reset: true
+      reset: true,
     });
   }
 }
-

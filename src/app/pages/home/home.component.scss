@@ -1,225 +1,118 @@
-/* home tab */
-
-.home{
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 50px 8% 0;
-    overflow: hidden;
+.home {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 8% 0;
+  overflow: hidden;
 }
 
-.home-content{
-    /* background: green; */
-    max-width: 50%;
+.home-content {
+  max-width: 50%;
 }
 
-.home-content h1{
-    font-size: 50px;
-    line-height: 1.2;
-    opacity: 0;
-    animation: slideBottom 1s ease forwards;
-    animation-delay: 1s;
-
+.home-content h1 {
+  font-size: 50px;
+  line-height: 1.2;
+  opacity: 0;
+  animation: slideBottom 1s ease forwards;
+  animation-delay: 1s;
 }
 
-.home-content h3{
-    font-size: 30px;
-    color: blue;
-    opacity: 0;
-    animation: slideRight 1s ease forwards;
-    animation-delay: 1.5s;
+.home-content h3 {
+  font-size: 30px;
+  color: blue;
+  opacity: 0;
+  animation: slideRight 1s ease forwards;
+  animation-delay: 1.5s;
 }
 
-.home-content p{
-    font-size: 16px;
-    margin: 15px 0 30px;
-    opacity: 0;
-    animation: slideLeft 1s ease forwards;
-    animation-delay: 1.9s;
+.home-content p {
+  font-size: 16px;
+  margin: 15px 0 30px;
+  opacity: 0;
+  animation: slideLeft 1s ease forwards;
+  animation-delay: 1.9s;
 }
 
 .btn {
-    display: inline-block;
-    padding: 10px 28px;
-    background-color: blue;
-    color: white;
-    border: 2px solid blue;
-    border-radius: 7px;
-    text-decoration: none;
-    transition:.6s ease all;
-    cursor: pointer;
-    letter-spacing: 1px;
-    font-weight: 600;
-    opacity: 0;
-    animation: slideTop 1s ease forwards;
-    animation-delay: 2s;
+  display: inline-block;
+  padding: 10px 28px;
+  background-color: blue;
+  color: white;
+  border: 2px solid blue;
+  border-radius: 7px;
+  text-decoration: none;
+  transition: 0.6s ease all;
+  cursor: pointer;
+  letter-spacing: 1px;
+  font-weight: 600;
+  opacity: 0;
+  animation: slideTop 1s ease forwards;
+  animation-delay: 2s;
 }
 
-.btn:hover{
-    background-color: rgb(216, 220, 226);
-    color: blue;
-    box-shadow: 0px 0px 10px rgba(0,0,255,.5);
-
+.btn:hover {
+  background-color: rgb(216, 220, 226);
+  color: blue;
+  box-shadow: 0px 0px 10px rgba(0, 0, 255, 0.5);
 }
 
-.home-img{
-    position: relative;
-    width: 50%;
-    height: 60%;
-    margin-left: 20%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+.home-img {
+  position: relative;
+  width: 50%;
+  height: 50%;
+  margin-left: 15%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-.home-img .rhombus{
-    position: relative;
-    width: 400px;
-    height: 400px;
-    background: #dcdcdc;
-    border: 1.9px solid blue;
-    transform: rotate(-45deg);
-    box-shadow: black;
-    border-radius: 90%;
-    transition: .5s ease-in-out;
-    opacity: 0;
-    animation: zoomOut 1s ease forwards;
-    animation-delay: 2.1s;
+.home-img .rhombus {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  background: #dcdcdc;
+  border: 1.9pc solid blue;
+  transform: rotate(-45deg);
+  box-shadow: black;
+  border-radius: 90%;
+  transition: 0.5s ease-in-out;
+  opacity: 0;
+  animation: zoomOut 1s ease forwards;
+  animation-delay: 2.1s;
 }
 
-.home-img .rhombus:hover{
-    border: 15px solid rgb(4, 0, 255);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) ;
+.home-img .rhombus:hover {
+  border: 15px solid rgb(4, 0, 255);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-
-/* .home-img .rhombus img{
-    position: absolute;
-    top: 110px;
-    right: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    animation: car 1s ease forwards;
-    animation-delay: 2.2s;
-} */
-
-#car-img{
-    position: absolute;
-    top: 30%;
-    right: 10%;
-    max-width: 150%;
-    height: auto;   /**don't change these measurements**/
-    border-radius: 20%;
-    opacity: 0;
-    animation: car 1s ease forwards;
-    animation-delay: 2.2s;
-
+#car-img {
+  position: absolute;
+  top: 30%;
+  right: 30%;
+  max-width: 100%;
+  height: auto; /**don't change these measurements**/
+  border-radius: 20%;
+  opacity: 0;
+  animation: car 1s ease forwards;
+  animation-delay: 2.2s;
 }
 
-.home .circle{
-    position: absolute;
-    top: -25%;
-    right: -15%;
-    width: 700px;
-    height: 700px;
-    border-radius: 90%;
-    background-color: blue;
-    transform: rotate(45deg);
-    z-index: -1;
-    opacity: 0;
-    animation: circle 1s ease forwards;
+.box .circle {
+  position: absolute;
+  top: -25%;
+  right: -15%;
+  width: 700px;
+  height: 700px;
+  border-radius: 90%;
+  background-color: blue;
+  transform: rotate(45deg);
+  z-index: -1;
+  opacity: 0;
+  animation: circle 1s ease forwards;
 }
 
-/* KEYFRAMES ANIMATION */
-@keyframes slideRight{
-    0%{
-        transform: translateX(-100px);
-        opacity: 0;
-    }
-    100%{
-        transform: translateX(0);
-        opacity: 100;
-    }
-}
-
-@keyframes slideLeft{
-    0%{
-        transform: translateX(100px);
-        opacity: 0;
-    }
-    100%{
-        transform: translateX(0);
-        opacity: 100;
-    }
-}
-
-@keyframes slideTop{
-    0%{
-        transform: translateY(100px);
-        opacity: 0;
-    }
-    100%{
-        transform: translateY(0);
-        opacity: 100;
-    }
-}
-
-@keyframes slideBottom{
-    0%{
-        transform: translateY(-100px);
-        opacity: 0;
-    }
-    100%{
-        transform: translateY(0);
-        opacity: 100;
-    }
-}
-
-@keyframes slideSci{
-    0%{
-        transform: translateX(100px) rotate(0deg);
-        opacity: 0;
-    }
-    100%{
-        transform: translateX(0) rotate(0deg);
-        opacity: 100;
-    }
-}
-
-@keyframes zoomOut{
-    0%{
-        transform: scale(1.1);
-        opacity: 0;
-    }
-    100%{
-        transform: scale(1);
-        opacity: 100;
-    }
-}
-
-@keyframes car {
-    0%{
-        transform: translate(300px , -300px) scale(0) rotate(-15deg);
-        opacity: 0;
-    }
-    100%{
-        transform: translate(0 , 0) scale(1) rotate(0deg);
-        opacity: 1;
-    }
-}
-
-@keyframes circle{
-    0%{
-        right: -40%;
-        opacity: 0;
-    }
-    100%{
-        right: -25%;
-        opacity: 100;
-    }
-}

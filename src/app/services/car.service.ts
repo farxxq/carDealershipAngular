@@ -1,9 +1,17 @@
-import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ICar } from './../models/car.model';
+import { HttpClient } from '@angular/common/http';
+import { Injectable, inject } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CarService {
+  private json = 'assets/json/carInfo.json';
 
-  constructor() { }
+  http = inject(HttpClient);
+
+  getData(): Observable<ICar[]> {
+    return this.http.get<ICar[]>(this.json);
+  }
 }
