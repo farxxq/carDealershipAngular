@@ -22,8 +22,7 @@ jobs:
         run: | 
           echo "$USERNAME" 
           echo $(date) 
-          echo "$STAGE"
-          |
+          echo "$STAGE"          
       - name: Set DB_Password
         env: 
           DB_PASS: ${{secrets.DB_PASSWORD}}
