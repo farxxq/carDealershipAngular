@@ -23,3 +23,8 @@ jobs:
           echo "$USERNAME" 
           echo $(date) 
           echo "$STAGE"
+          |
+      - name: Set DB_Password
+        env: 
+          DB_PASS: ${{secrets.DB_PASSWORD}}
+        run: echo "DB Password is set"
