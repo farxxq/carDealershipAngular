@@ -20,4 +20,6 @@ jobs:
         run: ls
       - name: info
         run: | 
-          echo "$USERNAME" \n $(date) \n "$STAGE"
+          echo "$USERNAME" 
+          echo $(date) 
+          echo "$STAGE"
