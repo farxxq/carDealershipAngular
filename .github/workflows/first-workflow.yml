@@ -11,6 +11,6 @@ jobs:
       - name: Greetings
         run: echo 'Assalamwalaikum'
       - name: Name of the user
-        run: echo "Noor"
+        run: echo "Noor",whoami
       - name: Date
         run: date
