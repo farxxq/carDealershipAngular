@@ -10,3 +10,7 @@ jobs:
     steps:
       - name: Greetings
         run: echo 'Assalamwalaikum'
+      - name: Name of the user
+        run: echo "Noor"
+      - name: Date
+        run: date
