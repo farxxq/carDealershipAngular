@@ -27,3 +27,5 @@ jobs:
         env: 
           DB_PASS: ${{secrets.DB_PASSWORD}}
         run: echo "DB Password is set"
+      - name: Failing on purpose
+        run: exit 1
