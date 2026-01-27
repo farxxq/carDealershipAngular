@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Greetings
         run: echo 'Assalamwalaikum'
-      - name: Name of the user
-        run: echo "Noor",whoami
-      - name: Date
-        run: date
+      - name: info
+        run: | 
+          echo "Noor",$(whoami)
+          date
