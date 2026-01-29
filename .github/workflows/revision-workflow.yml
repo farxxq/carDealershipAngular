@@ -39,7 +39,7 @@ jobs:
           TODAY=$(date +%d/%b/%Y)
           echo "Is it really in the naseeb?"
 
-          if["$TODAY" == "29/jan/2026"] then;
+          if["$TODAY" == "29/Jan/2026"]; then
             echo "It is today but may be not in nasseb yet, HasbiAllahu la illaha illa hu"
           else
             echo "It isn't today"
