@@ -28,4 +28,7 @@ jobs:
           DB_PASS: ${{secrets.DB_PASSWORD}}
         run: echo "DB Password is set"
       - name: Failing on purpose
-        run: exit 0
+        run: exit 1
+      - name: If failed
+        if: failure()
+        run: echo "Can this really work out at the end ?"
