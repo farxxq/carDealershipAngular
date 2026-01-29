@@ -1,0 +1,54 @@
+name: revision-workflow
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches:
+      - main
+
+jobs:
+  build: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Ubuntu being used"
+        run: uname -a
+      - name: "Checkout the branch"
+        uses: actions/checkout@v6.0.2
+  test:
+    name: "Waiting for Build job"
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+     - name: "Linux verifcation"
+       run: |
+        whoami
+        pwd
+      
+  Is-it-TODAY:
+    runs-on: ubuntu-latest
+    env:
+      USERNAME: "Noor" 
+    steps:
+      - name: "Basic self info"
+        run: echo "$USERNAME"
+      - name: "Today (29/jan/2026)??"
+        run: echo "is it now or never kinda situation?"
+      - name: "Is it the DAY?"
+        run: |
+          TODAY=$(date +%d/%b/%Y)
+          echo "Is it really in the naseeb?"
+
+          if["$TODAY" == "29/jan/2026"] then;
+            echo "It is today but may be not in nasseb yet, HasbiAllahu la illaha illa hu"
+          else
+            echo "It isn't today"
+            exit 1
+          fi
+      - name: "Guess what?"
+        if: failure()
+        run: | 
+          echo "It never was..."
+          exit 0
+    
+      
