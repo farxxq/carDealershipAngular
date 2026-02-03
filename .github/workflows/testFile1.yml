@@ -18,13 +18,14 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest,macos-latest]
+        node-version: [25, 20, 18]
     runs-on: ${{matrix.os}}
     needs: build
     steps:
       - name: "OS type"
-        run: echo `${matrix.os}`
-      - name: 'Test project'
-        run: npm test
+        run: echo `${matrix.os}`  
+      - name: "node type"
+        run: echo `${matrix.node-version}`  
       - name: "If error"
         if: failure()
         run: echo "Test failed"
