@@ -1,0 +1,56 @@
+name: Multi job with artifacts
+
+on:
+  push:
+    branches: main
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        node-version: [20,25]
+    runs-on: ${{matrix.os}} 
+    steps:
+      - name: 'Checkout the branch'
+        uses: actions/checkout@v6.0.2
+      - name: 'setup node'
+        uses: actions/setup-node@v6.2.0
+        with:
+          node-version: ${{matrix.node-version}}
+      - name: 'Install dependencies'
+        run: npm install
+      - name: 'Setting up cache'
+        uses: actions/cache@v5.0.3
+        with:
+          path: ~/.npm
+          key: ${{runner.os}}-node-${{matrix.node-version}}-${{hashFiles('**/package-lock.json')}}
+          restore-keys: |
+            ${{runner.os}}-node-${{matrix.node-version}}
+      - name: 'Build the file'
+        run: npm run build
+      - name: 'Upload artifact'
+        uses: actions/upload-artifact@v6.0.0
+        with:
+          name: dist-node-${{matrix.node-version}}-${{matrix.os}}
+          path: dist/
+
+  test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        node-version: [20,25]    
+    runs-on: ${{matrix.os}}  
+    steps:
+      - name: 'Checkout the branch'
+        uses: actions/checkout@v6.0.2
+      - name: 'setup node'
+        uses: actions/setup-node@v6.2.0
+        with:
+          node-version: ${{matrix.node-version}}
+      - name: 'Install dependencies'
+        run: npm install
+      - name: 'Download the artifact'
+        uses: actions/download-artifact@v7.0.0
+        with:
+          name: dist-node-${{matrix.node-version}}-${{matrix.os}}
