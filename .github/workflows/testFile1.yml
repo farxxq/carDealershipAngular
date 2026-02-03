@@ -23,9 +23,9 @@ jobs:
     needs: build
     steps:
       - name: "OS type"
-        run: echo `${matrix.os}`  
+        run: echo `${{matrix.os}}`  
       - name: "node type"
-        run: echo `${matrix.node-version}`  
+        run: echo `${{matrix.node-version}}`  
       - name: "If error"
         if: failure()
         run: echo "Test failed"
