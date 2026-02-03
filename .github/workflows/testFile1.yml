@@ -1,0 +1,36 @@
+name: Multiple jobs
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:    
+     - name: 'checkout the branch'
+       uses: actions/checkout@v6.0.2
+     - name: 'Install dependencies'
+       run: npm install
+     - name: 'Build project'
+       run: npm run build
+  test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest,macos-latest]
+    runs-on: ${{matrix.os}}
+    needs: build
+    steps:
+      - name: "OS type"
+        run: echo `${matrix.os}`
+      - name: 'Test project'
+        run: npm test
+  deploy:
+    runs-on: ubuntu-latest
+    steps:    
+     - name: 'checkout the branch'
+       uses: actions/checkout@v6.0.2    
+     - name: 'Deploy project'
+       run: echo "Deploying application"
+  
+     
