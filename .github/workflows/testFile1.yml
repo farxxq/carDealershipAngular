@@ -23,7 +23,11 @@ jobs:
     needs: build
     steps:
       - name: "OS type"
-        run: echo `${{matrix.os}}`  
+        run: echo `${{matrix.os}}`
+      - name: "Setup the node version"
+        uses: actions/setup-node@v6.2.0
+        with:
+          node-version: ${{matrix.node-version}}
       - name: "node type"
         run: echo `${{matrix.node-version}}`  
       - name: "If error"
