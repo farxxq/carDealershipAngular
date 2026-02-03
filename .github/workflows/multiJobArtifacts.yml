@@ -40,7 +40,8 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest]
         node-version: [20,25]    
-    runs-on: ${{matrix.os}}  
+    runs-on: ${{matrix.os}}
+    needs: build
     steps:
       - name: 'Checkout the branch'
         uses: actions/checkout@v6.0.2
