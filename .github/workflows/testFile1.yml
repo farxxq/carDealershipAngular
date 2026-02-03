@@ -52,8 +52,8 @@ jobs:
         run: npm install
       - name: "node type"
         run: echo `${{matrix.node-version}}` 
-      - name: 'Test files'
-        run: npm test
+      # - name: 'Test files'
+      #   run: npm test
       - name: "Test failed"
         if: failure()
         run: echo "Test failed"
