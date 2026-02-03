@@ -24,6 +24,7 @@ jobs:
        run: npm install
      - name: 'Build project'
        run: npm run build
+       
   test:
     strategy:
       matrix:
@@ -34,6 +35,8 @@ jobs:
     steps:
       - name: "OS type"
         run: echo `${{matrix.os}}`
+      - name: 'checkout the branch'
+        uses: actions/checkout@v6.0.2
       - name: "Setup the node version"
         uses: actions/setup-node@v6.2.0
         with:
